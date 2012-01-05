@@ -68,8 +68,19 @@ func status() {
 	wg.Done()
 }
 
+func read(conn net.Conn) {
+	for {
+		buf := make([]byte, 1024)
+		conn.Read(buf)
+	}
+	for i, _ := range buf {
+		buf[i] = 0x00
+	}
+}
+
 func client() {
 	conn, err := net.Dial("tcp", Addr)
+	go read(conn)
 	if err != nil {
 		ec <- true
 		goto done
@@ -82,6 +93,7 @@ func client() {
 		}
 		sc <- true
 	}
+	conn.Close()
 	fc <- true
 done:
 	wg.Done()
