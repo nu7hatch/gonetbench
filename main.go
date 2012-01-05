@@ -1,11 +1,11 @@
 package main
 
 import (
-	"sync"
+	"flag"
 	"fmt"
 	"net"
-	"flag"
 	"os"
+	"sync"
 )
 
 var (
@@ -15,7 +15,7 @@ var (
 	Rep  uint
 
 	wg sync.WaitGroup
-	
+
 	sc chan bool // sent packets
 	lc chan bool // lost packets
 	fc chan bool // finished connections
@@ -50,13 +50,17 @@ func status() {
 	fmt.Printf("Benchmarking %s with %d concurrent clients and %d packets each:\n\n", Addr, Num, Rep)
 	for {
 		select {
-		case <-fc: fcs += 1
-		case <-ec: ecs += 1
-		case <-sc: scs += 1
-		case <-lc: lcs += 1
+		case <-fc:
+			fcs += 1
+		case <-ec:
+			ecs += 1
+		case <-sc:
+			scs += 1
+		case <-lc:
+			lcs += 1
 		}
 		fmt.Printf("\rClients (done: %d, failed: %d), Packets (sent: %d, lost: %d)", fcs, ecs, scs, lcs)
-		if fcs + ecs >= int(Num) {
+		if fcs+ecs >= int(Num) {
 			break
 		}
 	}
