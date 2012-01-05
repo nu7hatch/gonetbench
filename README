@@ -1,0 +1,34 @@
+Simple TCP benchmark tool in Go
+===============================
+
+This package provides simple command line tool to benchmark your
+TCP connections/servers. 
+
+Installation
+------------
+Use the `goinstall` tool:
+
+	$ goinstall github.com/nu7hatch/gonetbench
+
+... or install it manually:
+
+	$ git clone git://github.com/nu7hatch/gonetbench.git
+	$ cd gonetbench
+	$ make install
+
+Usage
+-----
+Here's a trivial example of usage:
+
+	$ time gonetbench -n 500 -r 10 127.0.0.1:8080 "foo\n"
+
+For more information use:
+
+	$ gonetbench -help
+    
+Copyright
+---------
+Copyright (C) 2011 by Krzysztof Kowalik <chris@nu7hat.ch> and
+Bruno Aguirre <elcuervo@cuboxsa.com>
+
+Released under the MIT license. See COPYING file for details.
