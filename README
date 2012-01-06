@@ -4,6 +4,9 @@ Simple TCP benchmark tool in Go
 This package provides simple command line tool to benchmark your
 TCP connections/servers. 
 
+This tool has been made while investing Go at Cubox - an awesome
+dev shop from Uruguay!
+
 Installation
 ------------
 Use the `goinstall` tool:
