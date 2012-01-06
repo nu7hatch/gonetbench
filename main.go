@@ -95,6 +95,13 @@ func client() {
 	}
 }
 
+func startAll() {
+	for i := 0; i < int(Num); i += 1 {
+		pc <- true
+		go client()
+	}
+}
+
 func main() {
 	quit = make(chan bool)
 	ac = make(chan bool)
@@ -109,10 +116,7 @@ func main() {
 	}
 	
 	go status()
-	for i := 0; i < int(Num); i += 1 {
-		pc <- true
-		go client()
-	}
+	go startAll()
 
 	<-signal.Incoming
 	quit <- true
