@@ -20,7 +20,7 @@ Usage
 -----
 Here's a trivial example of usage:
 
-	$ time gonetbench -n 500 -r 10 127.0.0.1:8080 "foo\n"
+	$ gonetbench -n 500 -s 10 127.0.0.1:8080
 
 For more information use:
 
