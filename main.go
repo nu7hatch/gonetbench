@@ -110,7 +110,7 @@ func main() {
 	ec = make(chan bool)
 	lc = make(chan bool)
 
-	pack := make([]byte, Size)
+	pack = make([]byte, Size)
 	for i, _ := range pack {
 		pack[i] = 'x'
 	}
