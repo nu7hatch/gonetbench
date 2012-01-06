@@ -1,8 +1,8 @@
 Simple TCP benchmark tool in Go
 ===============================
 
-This package provides simple command line tool to benchmark your
-TCP connections/servers. 
+This package provides simple command line tool to benchmark
+number of concurrent TCP connections against your server. 
 
 This tool has been made while investing Go at Cubox - an awesome
 dev shop from Uruguay!
