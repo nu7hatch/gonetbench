@@ -13,3 +13,4 @@ _cgo*
 *.prof
 bench
 gonetbench
+main
